@@ -96,6 +96,7 @@ export default class PreferencesUserSettingsTab extends React.Component<IProps, 
         'showChatEffects',
         'showAvatarChanges',
         'Pill.shouldShowPillAvatar',
+        'TextualBody.enableColors',
         'TextualBody.enableBigEmoji',
         'scrollToBottomOnMessageSent',
     ];

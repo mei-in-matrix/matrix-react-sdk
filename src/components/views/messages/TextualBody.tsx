@@ -570,6 +570,7 @@ export default class TextualBody extends React.Component<IBodyProps, IState> {
                 }, this.props.highlights, {
                     disableBigEmoji: isEmote
                         || !SettingsStore.getValue<boolean>('TextualBody.enableBigEmoji'),
+                    disableColors: !SettingsStore.getValue<boolean>('TextualBody.enableColors'),
                     // Part of Replies fallback support
                     stripReplyFallback: stripReply,
                     ref: this.contentRef,
@@ -583,6 +584,7 @@ export default class TextualBody extends React.Component<IBodyProps, IState> {
             body = HtmlUtils.bodyToHtml(content, this.props.highlights, {
                 disableBigEmoji: isEmote
                     || !SettingsStore.getValue<boolean>('TextualBody.enableBigEmoji'),
+                disableColors: !SettingsStore.getValue<boolean>('TextualBody.enableColors'),
                 // Part of Replies fallback support
                 stripReplyFallback: stripReply,
                 ref: this.contentRef,

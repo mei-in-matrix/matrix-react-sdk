@@ -406,6 +406,7 @@ class HtmlHighlighter extends BaseHighlighter<string> {
 interface IOpts {
     highlightLink?: string;
     disableBigEmoji?: boolean;
+    disableColors?: boolean;
     stripReplyFallback?: boolean;
     returnString?: boolean;
     forComposerQuote?: boolean;
@@ -466,6 +467,7 @@ function formatEmojis(message: string, isHtmlMessage: boolean): (JSX.Element | s
  *
  * opts.highlightLink: optional href to add to highlighted words
  * opts.disableBigEmoji: optional argument to disable the big emoji class.
+ * opts.disableColors: optional argument to disable colors
  * opts.stripReplyFallback: optional argument specifying the event is a reply and so fallback needs removing
  * opts.returnString: return an HTML string rather than JSX elements
  * opts.forComposerQuote: optional param to lessen the url rewriting done by sanitization, for quoting into composer
@@ -481,6 +483,11 @@ export function bodyToHtml(content: IContent, highlights: string[], opts: IOpts 
     let sanitizeParams = sanitizeHtmlParams;
     if (opts.forComposerQuote) {
         sanitizeParams = composerSanitizeHtmlParams;
+    }
+
+    if (opts.disableColors) {
+        sanitizeParams.allowedAttributes.font = [];
+        sanitizeParams.allowedAttributes.span = [];
     }
 
     let strippedBody: string;

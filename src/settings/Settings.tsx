@@ -537,6 +537,12 @@ export const SETTINGS: {[setting: string]: ISetting} = {
         default: true,
         invertedSettingName: 'Pill.shouldHidePillAvatar',
     },
+    "TextualBody.enableColors": {
+        supportedLevels: LEVELS_ACCOUNT_SETTINGS,
+        displayName: _td('Show colors in messages'),
+        default: true,
+        invertedSettingName: 'TextualBody.disableColors',
+    },
     "TextualBody.enableBigEmoji": {
         supportedLevels: LEVELS_ACCOUNT_SETTINGS,
         displayName: _td('Enable big emoji in chat'),
